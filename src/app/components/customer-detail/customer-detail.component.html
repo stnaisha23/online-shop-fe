@@ -1,0 +1,22 @@
+<h3 class="mb-6 mt-10 text-2xl mx-auto font-bold max-w-lg text-center text-gray-900 dark:text-white">Customer Detail</h3>
+<div class="mx-auto max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+  <div *ngIf="customer" class="flex flex-col items-center pb-10 mt-6">
+      <img class="w-24 h-24 mb-3 rounded-full shadow-lg" [src]="customer.pic" alt="pic cust"/>
+      <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{{ customer.customerName }}</h5>
+      <span class="text-sm p-4 text-gray-500 dark:text-gray-400">{{ customer.customerCode }} | {{ customer.isActive ? 'Active' : 'Inactive' }}</span>
+      <span class="text-sm text-gray-500 dark:text-gray-400">{{ customer.customerAddress }} | {{ customer.customerPhone }}</span>
+      <span class="text-sm p-4 dark:text-gray-400">Last Order Date : {{ customer.lastOrderDate | date: 'dd/MM/yyyy' }}</span>
+      <div class="flex mt-4 md:mt-6">
+          <button type="button" (click)="editCustomer(customer.customerId)" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-green-500 border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-green-800 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Edit</button>
+          <button type="button" (click)="deleteCustomer(customer.customerId)" class="py-2 px-4 ms-2 text-sm font-medium text-white focus:outline-none bg-blue-700 rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Delete</button>
+          <button type="button" (click)="onCancel()" class="py-2 px-4 ms-2 text-sm font-medium text-white focus:outline-none bg-red-600  rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-red-600 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Back</button>
+      </div>
+  </div>
+</div>
+
+<style>
+  .label {
+    display: inline-block;
+    width: 150px;
+  }
+</style>
